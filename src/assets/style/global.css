@@ -1,0 +1,71 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 55%;
+  scrollbar-width: none;
+}
+
+body {
+  box-sizing: border-box;
+  color: #212121;
+  font-family: 'General Sans', sans-serif;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+.btn {
+  padding: 1.2rem 2rem;
+  background: #212121;
+  border-radius: 5px;
+  border: none;
+  color: #fff;
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 1.6rem;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+/* @media only screen and (max-width: 340px) {
+  html {
+    font-size: 52%;
+  }
+} */
+
+@media only screen and (min-width: 767px) {
+  html {
+    font-size: 58.5%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  html {
+    font-size: 62.5%;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  html {
+    font-size: 65%;
+  }
+}

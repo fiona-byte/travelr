@@ -1,0 +1,21 @@
+.landing-page {
+  padding: 0 10rem;
+}
+
+.landing-page__container {
+  margin: 7.2rem 0;
+  text-align: center;
+}
+
+.landing-page__heading {
+  font-size: 4rem;
+  padding-bottom: 1.6rem;
+}
+
+.landing-page__sub {
+  text-align: center;
+  width: 70%;
+  margin: 0 auto 4rem;
+  font-size: 1.6rem;
+  line-height: 24px;
+}

@@ -1,0 +1,49 @@
+.country-details {
+  margin: 4rem 10rem;
+}
+
+.country-details__header {
+  text-align: center;
+}
+
+.country-details__heading {
+  font-size: 2rem;
+  padding-bottom: 1rem;
+  font-weight: 600;
+}
+
+.country-details__sub {
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+.country-details__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 4rem;
+}
+
+.country-details__flex {
+  display: flex;
+  padding-bottom: 2.4rem;
+}
+
+.country-details__flex--heading {
+  font-weight: 500;
+}
+
+.country-details__flex--heading,
+.country-details__flex--sub {
+  font-size: 1.6rem;
+}
+
+.country-details__image--container {
+  margin-right: 3.2rem;
+}
+
+.country-details__image {
+  width: 35rem;
+  height: 35rem;
+  border-radius: 10px;
+}

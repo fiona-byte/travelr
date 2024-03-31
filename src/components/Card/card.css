@@ -1,0 +1,25 @@
+.card {
+  padding: 1.2rem 1.6rem;
+  border: 1px solid #b9b9b9;
+  border-radius: 5px;
+}
+
+.card__flag {
+  margin-right: auto;
+  display: block;
+}
+
+.card__box {
+  padding: 2.4rem 1.6rem;
+  text-align: center;
+}
+
+.card__capital {
+  font-size: 1.8rem;
+  font-weight: 600;
+  padding-bottom: 0.6rem;
+}
+
+.card__country {
+  font-size: 1.4rem;
+}
