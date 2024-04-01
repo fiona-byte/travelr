@@ -5,12 +5,10 @@ const LandingPage = () => {
   return (
     <div className='landing-page'>
       <div className='landing-page__container'>
-        <h1 className='landing-page__heading'>Lorem ipsum dolor set amet</h1>
-        <p className='landing-page__sub'>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat aut amet nam perferendis quos doloremque
-          architecto possimus itaque nisi nihil!
-        </p>
-        <Search />
+        <h2 className='landing-page__heading'>Plan the perfect stress-free trip that fits you.</h2>
+        <div className='landing-page__search--wrapper'>
+          <Search />
+        </div>
       </div>
     </div>
   );

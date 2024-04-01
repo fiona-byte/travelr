@@ -13,7 +13,7 @@ html {
 
 body {
   box-sizing: border-box;
-  color: #212121;
+  color: #171717;
   background-color: #fbfbfb;
   font-family: 'Junge', serif;
   font-weight: 400;
@@ -42,18 +42,14 @@ li {
 }
 
 .btn {
-  padding: 1.2rem 2rem;
-  background: #212121;
-  border-radius: 5px;
+  padding: 1rem 2rem;
+  background: #29a4bf;
+  border-radius: 8px;
   border: none;
-  color: #fff;
+  color: #fbfbfb;
   font-family: inherit;
   cursor: pointer;
   font-size: 1.6rem;
-}
-
-.btn:focus {
-  outline: none;
 }
 
 .logo {

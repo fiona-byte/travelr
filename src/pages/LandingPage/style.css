@@ -1,21 +1,40 @@
-.landing-page {
-  padding: 0 10rem;
-}
-
-.landing-page__container {
-  margin: 7.2rem 0;
-  text-align: center;
-}
-
 .landing-page__heading {
-  font-size: 4rem;
-  padding-bottom: 1.6rem;
+  font-size: 3.2rem;
+  text-align: center;
+  padding: 8rem 1.6rem 11.2rem;
 }
 
-.landing-page__sub {
-  text-align: center;
-  width: 70%;
-  margin: 0 auto 4rem;
-  font-size: 1.6rem;
-  line-height: 24px;
+.landing-page__search--wrapper {
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('../../assets/images/image.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+}
+
+@media only screen and (min-width: 768px) {
+  .landing-page__heading {
+    font-size: 4rem;
+    padding: 7.2rem 0 8.8rem;
+    width: 65%;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .landing-page__search--wrapper {
+    border-radius: 24px 24px 0 0;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .landing-page {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .landing-page__heading {
+    font-size: 4.8rem;
+    width: 45%;
+    padding: 5.6rem 0 8.8rem;
+  }
 }
