@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<AppLayout />}>
             <Route path='/' element={<LandingPage />} />
-            <Route path='/country/:country_name' element={<CountryDetails />} />
+            <Route path='/details' element={<CountryDetails />} />
           </Route>
         </Routes>
       </QueryClientProvider>

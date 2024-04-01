@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useQueries } from '@tanstack/react-query';
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import appServices from '../../services';
-// import { obj } from '../../object';
 import { mapObject } from '../../utils/mapObject';
 import { CountryProps } from '../../types';
 import Clock from '../../assets/svgs/clock';
@@ -10,23 +9,21 @@ import Thermometer from '../../assets/svgs/thermometer';
 import './CountryDetails.css';
 
 const CountryDetails = () => {
-  const { country_name } = useParams();
+  const [searchParams] = useSearchParams();
+  const location = searchParams.get('to');
 
   const [country, setCountry] = useState<CountryProps>();
 
   const results = useQueries({
     queries: [
-      { queryKey: ['search'], retry: 0, queryFn: () => appServices.searchCountry(country_name as string) },
-      { queryKey: ['getPhoto'], retry: 0, queryFn: () => appServices.getPhoto(country_name as string) },
+      { queryKey: ['search'], retry: 0, queryFn: () => appServices.searchCountry(location as string) },
+      { queryKey: ['getPhoto'], retry: 0, queryFn: () => appServices.getPhoto(location as string) },
     ],
   });
 
   useEffect(() => {
-    // setCountry(mapObject(obj ?? {}));
     if (results) setCountry(mapObject(results[0]?.data ?? {}));
   }, [results]);
-
-  // TODO: Create an array of details to be shown here and map through it
 
   return (
     <div className='country-details'>
@@ -36,7 +33,7 @@ const CountryDetails = () => {
         <div
           className='country-details__container'
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${results[1]?.data?.results[4]?.urls?.full})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${results[1]?.data?.results[5]?.urls?.full})`,
           }}
         >
           <div className='country-details__wrapper'>
