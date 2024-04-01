@@ -54,12 +54,11 @@ li {
 
 .logo {
   font-family: 'Happy Monkey', system-ui;
-  text-align: center;
   font-weight: 500;
   letter-spacing: -3.2px;
   font-size: 4rem;
   padding: 1.4rem 0;
-  display: block;
+  display: inline-block;
 }
 
 /* @media only screen and (max-width: 340px) {

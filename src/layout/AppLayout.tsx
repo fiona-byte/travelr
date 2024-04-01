@@ -3,9 +3,11 @@ import { Link, Outlet } from 'react-router-dom';
 const AppLayout = () => {
   return (
     <>
-      <Link to='/' className='logo'>
-        travelr
-      </Link>
+      <div style={{ textAlign: 'center' }}>
+        <Link to='/' className='logo'>
+          travelr
+        </Link>
+      </div>
       <div className='container'>
         <Outlet />
       </div>
