@@ -14,12 +14,22 @@ html {
 body {
   box-sizing: border-box;
   color: #212121;
-  font-family: 'General Sans', sans-serif;
+  background-color: #fbfbfb;
+  font-family: 'Junge', serif;
   font-weight: 400;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
   scroll-behavior: smooth;
   height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
 }
 
 a {
@@ -46,15 +56,32 @@ li {
   outline: none;
 }
 
+.logo {
+  font-family: 'Happy Monkey', system-ui;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: -3.2px;
+  font-size: 4rem;
+  padding: 1.4rem 0;
+}
+
 /* @media only screen and (max-width: 340px) {
   html {
     font-size: 52%;
   }
 } */
 
-@media only screen and (min-width: 767px) {
+@media only screen and (min-width: 768px) {
   html {
     font-size: 58.5%;
+  }
+
+  .container {
+    padding: 0 1.2rem;
+  }
+
+  .logo {
+    font-size: 3.2rem;
   }
 }
 

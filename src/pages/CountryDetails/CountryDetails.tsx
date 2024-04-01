@@ -2,8 +2,11 @@ import { useState, useEffect } from 'react';
 import { useQueries } from '@tanstack/react-query';
 import { useParams } from 'react-router-dom';
 import appServices from '../../services';
+// import { obj } from '../../object';
 import { mapObject } from '../../utils/mapObject';
 import { CountryProps } from '../../types';
+import Clock from '../../assets/svgs/clock';
+import Thermometer from '../../assets/svgs/thermometer';
 import './CountryDetails.css';
 
 const CountryDetails = () => {
@@ -19,6 +22,7 @@ const CountryDetails = () => {
   });
 
   useEffect(() => {
+    // setCountry(mapObject(obj ?? {}));
     if (results) setCountry(mapObject(results[0]?.data ?? {}));
   }, [results]);
 
@@ -26,49 +30,45 @@ const CountryDetails = () => {
 
   return (
     <div className='country-details'>
-      {results[0]?.isLoading && results[1]?.isLoading ? (
+      {results[0]?.isLoading || results[1]?.isLoading ? (
         <h2 style={{ textAlign: 'center' }}>Loading</h2>
       ) : (
-        <div className='country-details__wrapper'>
-          <div className='country-details__header'>
-            <h2 className='country-details__heading'>{country?.capital}</h2>
-            <h5 className='country-details__sub'>{country?.name}</h5>
-          </div>
-          <div className='country-details__container'>
+        <div
+          className='country-details__container'
+          style={{
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${results[1]?.data?.results[3]?.urls?.full})`,
+          }}
+        >
+          <div className='country-details__wrapper'>
             <div className='country-details__box'>
-              <div className='country-details__flex'>
-                <h3 className='country-details__flex--heading'>Continent: &nbsp;</h3>
-                <p className='country-details__flex--sub'>{country?.region}</p>
+              <div className='country-details__details'>
+                <div className='country-details__details--box'>
+                  <Clock className='country-details__details--icon' />
+                  <p className='country-details__timezone'>{country?.timezones[0]}</p>
+                </div>
+                <div className='country-details__details--box'>
+                  <Thermometer className='country-details__details--icon' />
+                  <p className='country-details__temperature'>28°C</p>
+                </div>
               </div>
-              <div className='country-details__flex'>
-                <h3 className='country-details__flex--heading'>Flight time: &nbsp;</h3>
-                <p className='country-details__flex--sub'></p>
-              </div>
-              <div className='country-details__flex'>
-                <h3 className='country-details__flex--heading'>Timezone: &nbsp;</h3>
-                {/* <p className='country-details__flex--sub'>{country?.timezones[0]}</p> */}
-              </div>
-              <div className='country-details__flex'>
-                <h3 className='country-details__flex--heading'>Weather: &nbsp;</h3>
-                <p className='country-details__flex--sub'></p>
-              </div>
-              <div className='country-details__flex'>
-                <h3 className='country-details__flex--heading'>Languages: &nbsp;</h3>
-                <p className='country-details__flex--sub'></p>
-              </div>
-              <div className='country-details__flex'>
-                <h3 className='country-details__flex--heading'>Population: &nbsp;</h3>
-                <p className='country-details__flex--sub'>{country?.population?.toLocaleString()}</p>
+              <div className='country-details__text--container'>
+                <h2 className='country-details__capital'>{country?.capital},</h2>
+                <h4 className='country-details__name'>{country?.name}</h4>
               </div>
             </div>
-            <div className='country-details__image--container'>
-              {/* TODO: Add a skeleton loader */}
-              <img
-                src={results[1]?.data?.results[2]?.urls?.full}
-                alt={results[1]?.data?.results[2]?.description}
-                loading='lazy'
-                className='country-details__image'
-              />
+            <div className='country-details__info'>
+              <div className='country-details__info--box'>
+                <h6 className='country-details__info--heading'>Continent:</h6>
+                <p className='country-details__info--text'>{country?.region}</p>
+              </div>
+              <div className='country-details__info--box'>
+                <h6 className='country-details__info--heading'>Flight time:</h6>
+                <p className='country-details__info--text'>6 hrs</p>
+              </div>
+              <div className='country-details__info--box'>
+                <h6 className='country-details__info--heading'>Population:</h6>
+                <p className='country-details__info--text'>{country?.population?.toLocaleString()}</p>
+              </div>
             </div>
           </div>
         </div>
