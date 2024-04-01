@@ -20,20 +20,6 @@
   width: 100%;
 }
 
-.form__control:first-child {
-  display: flex;
-  align-items: center;
-}
-
-.form__control:first-child::after {
-  display: block;
-  content: '';
-  height: 16px;
-  width: 1px;
-  background: #bcbcbc;
-  margin-right: 1.6rem;
-}
-
 .search__input {
   padding: 0.9rem 1.4rem;
   background-color: transparent;
@@ -46,17 +32,13 @@
   width: 100%;
 }
 
-.MuiPaper-root .MuiAutocomplete-listbox .MuiAutocomplete-option {
-  padding: 8px 16px;
-}
-
 .search-render-list__name {
   font-family: 'Junge', serif;
   font-size: 1.5rem;
 }
 
 .search__input:focus {
-  outline: 1px solid #bcbcbc;
+  outline: none;
 }
 
 .search__btn {
@@ -84,6 +66,20 @@
     align-items: center;
   }
 
+  .form__control:first-child {
+    display: flex;
+    align-items: center;
+  }
+
+  .form__control:first-child::after {
+    display: block;
+    content: '';
+    height: 16px;
+    width: 1px;
+    background: #bcbcbc;
+    margin-right: 1.6rem;
+  }
+
   .search__input {
     padding: 0.8rem 1.4rem;
     font-size: 1.6rem;
@@ -97,8 +93,12 @@
     border: 1px solid #bcbcbc;
   }
 
+  .MuiPaper-root .MuiAutocomplete-listbox .MuiAutocomplete-option {
+    padding: 8px 16px;
+  }
+
   .search__btn {
-    padding: 0.8rem 1.4rem;
+    padding: 0.9rem 1.4rem;
     width: 45%;
     margin-top: 0;
     margin-left: 0.8rem;
