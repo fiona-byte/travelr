@@ -1,9 +1,11 @@
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 
 const AppLayout = () => {
   return (
     <>
-      <h1 className='logo'>travelr</h1>
+      <Link to='/' className='logo'>
+        travelr
+      </Link>
       <div className='container'>
         <Outlet />
       </div>
