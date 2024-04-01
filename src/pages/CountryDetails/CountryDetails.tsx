@@ -36,7 +36,7 @@ const CountryDetails = () => {
         <div
           className='country-details__container'
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${results[1]?.data?.results[3]?.urls?.full})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${results[1]?.data?.results[4]?.urls?.full})`,
           }}
         >
           <div className='country-details__wrapper'>
@@ -69,6 +69,21 @@ const CountryDetails = () => {
                 <h6 className='country-details__info--heading'>Population:</h6>
                 <p className='country-details__info--text'>{country?.population?.toLocaleString()}</p>
               </div>
+            </div>
+            <div className='attribution'>
+              <p className='attribution__text'>
+                Photo by{' '}
+                <a
+                  href={`https://unsplash.com/@${results[1]?.data?.results[4]?.user?.username}?utm_source=travelr&utm_medium=referral"`}
+                  target='_blank'
+                >
+                  {results[1]?.data?.results[4]?.user?.name}
+                </a>{' '}
+                on{' '}
+                <a href='https://unsplash.com/?utm_source=travelr&utm_medium=referral' target='_blank'>
+                  Unsplash
+                </a>
+              </p>
             </div>
           </div>
         </div>
