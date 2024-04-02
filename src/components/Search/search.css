@@ -90,7 +90,6 @@
 
   .search__input:focus {
     outline: none;
-    border: 1px solid #bcbcbc;
   }
 
   .MuiPaper-root .MuiAutocomplete-listbox .MuiAutocomplete-option {
