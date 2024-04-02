@@ -35,7 +35,7 @@ const CountryDetails = () => {
         <div
           className='country-details__container'
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${results[1]?.data?.results[6]?.urls?.full})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.52), rgba(0, 0, 0, 0.52)), url(${results[1]?.data?.results[6]?.urls?.full})`,
           }}
         >
           <div className='country-details__wrapper'>
