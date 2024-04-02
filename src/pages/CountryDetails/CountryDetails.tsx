@@ -21,19 +21,21 @@ const CountryDetails = () => {
     ],
   });
 
+  const { isLoading, isRefetching, data } = results[0];
+
   useEffect(() => {
-    if (results) setCountry(mapObject(results[0]?.data ?? {}));
-  }, [results]);
+    if (results) setCountry(mapObject(data ?? {}));
+  }, [results, data]);
 
   return (
     <div className='country-details'>
-      {results[0]?.isLoading || results[1]?.isLoading ? (
+      {isLoading || isRefetching || results[1]?.isLoading || results[1]?.isRefetching ? (
         <h2 style={{ textAlign: 'center' }}>Loading</h2>
       ) : (
         <div
           className='country-details__container'
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${results[1]?.data?.results[5]?.urls?.full})`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${results[1]?.data?.results[6]?.urls?.full})`,
           }}
         >
           <div className='country-details__wrapper'>

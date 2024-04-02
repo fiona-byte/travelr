@@ -39,6 +39,21 @@ const Search = () => {
     [data]
   );
 
+  const formFields = [
+    {
+      id: 'location',
+      placeholder: 'Current location',
+      value: location,
+      handleChange: (newValue: string) => setLocation(newValue),
+    },
+    {
+      id: 'destination',
+      placeholder: 'Destination',
+      value: destination,
+      handleChange: (newValue: string) => setDestination(newValue),
+    },
+  ];
+
   const query = useQuery({
     retry: 0,
     queryKey: ['searchCountry'],
@@ -48,6 +63,7 @@ const Search = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     await query?.refetch();
     if (query?.isSuccess) navigate(`/details?from=${location}&to=${destination}`);
   };
@@ -56,55 +72,33 @@ const Search = () => {
     <div className='search'>
       <div className='search__container'>
         <form action='' className='search__form' onSubmit={handleSubmit}>
-          <div className='form__control'>
-            <Autocomplete
-              id='location'
-              options={countries?.sort()}
-              value={location}
-              getOptionLabel={(option) => option}
-              noOptionsText='No location'
-              onChange={(_, newValue) => {
-                setLocation(newValue as string);
-              }}
-              renderInput={(params) => (
-                <div ref={params.InputProps.ref}>
-                  <input {...params.inputProps} type='text' className='search__input' placeholder='Current location' />
-                </div>
-              )}
-              renderOption={(props, option) => {
-                return (
-                  <li className='search-render-list' {...props}>
-                    <h4 className='search-render-list__name'>{option}</h4>
-                  </li>
-                );
-              }}
-            />
-          </div>
-          <div className='form__control'>
-            <Autocomplete
-              id='destination'
-              options={countries?.sort()}
-              value={destination}
-              getOptionLabel={(option) => option}
-              noOptionsText='No destination'
-              onChange={(_, newValue) => {
-                setDestination(newValue as string);
-              }}
-              renderInput={(params) => (
-                <div ref={params.InputProps.ref}>
-                  <input {...params.inputProps} type='text' className='search__input' placeholder='Destination' />
-                </div>
-              )}
-              renderOption={(props, option) => {
-                return (
-                  <li className='search-render-list' {...props}>
-                    <h4 className='search-render-list__name'>{option}</h4>
-                  </li>
-                );
-              }}
-            />
-          </div>
-          <button className='btn search__btn' disabled={!location || !destination}>
+          {formFields?.map(({ id, placeholder, value, handleChange }) => (
+            <div className='form__control' key={id}>
+              <Autocomplete
+                id={id}
+                options={countries?.sort()}
+                value={value}
+                getOptionLabel={(option) => option}
+                noOptionsText='No location'
+                onChange={(_, newValue) => {
+                  handleChange(newValue as string);
+                }}
+                renderInput={(params) => (
+                  <div ref={params.InputProps.ref}>
+                    <input {...params.inputProps} type='text' className='search__input' placeholder={placeholder} />
+                  </div>
+                )}
+                renderOption={(props, option) => {
+                  return (
+                    <li className='search-render-list' {...props}>
+                      <h4 className='search-render-list__name'>{option}</h4>
+                    </li>
+                  );
+                }}
+              />
+            </div>
+          ))}
+          <button className='btn search__btn' disabled={!location || !destination || query?.isLoading}>
             {query?.isLoading ? 'Searching' : 'Search'}
           </button>
         </form>
