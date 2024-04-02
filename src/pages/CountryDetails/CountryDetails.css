@@ -3,13 +3,14 @@
   background-position: center;
   color: #fbfbfb;
   border-radius: 24px;
-  height: 48rem;
+  margin-top: 1.6rem;
+  height: 80dvh;
   position: relative;
 }
 
 .country-details__wrapper {
   margin-left: 3.2rem;
-  padding: 8rem 0;
+  padding: 13.6rem 0;
 }
 
 .country-details__details,
@@ -48,7 +49,7 @@
 }
 
 .country-details__info {
-  margin-top: 7.2rem;
+  margin-top: 10.4rem;
 }
 
 .country-details__info--box {
