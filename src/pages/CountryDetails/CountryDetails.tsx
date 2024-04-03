@@ -4,8 +4,8 @@ import { useSearchParams } from 'react-router-dom';
 import appServices from '../../services';
 import { mapObject } from '../../utils/mapObject';
 import { CountryProps } from '../../types';
-import Clock from '../../assets/svgs/clock';
-import Thermometer from '../../assets/svgs/thermometer';
+import Clock from '../../assets/icons/clock';
+import Thermometer from '../../assets/icons/thermometer';
 import './CountryDetails.css';
 
 const CountryDetails = () => {
@@ -18,6 +18,7 @@ const CountryDetails = () => {
     queries: [
       { queryKey: ['search'], retry: 0, queryFn: () => appServices.searchCountry(location as string) },
       { queryKey: ['getPhoto'], retry: 0, queryFn: () => appServices.getPhoto(location as string) },
+      { queryKey: ['getWeather'], retry: 0, queryFn: () => appServices.getWeatherTemperature(location as string) },
     ],
   });
 
@@ -47,7 +48,7 @@ const CountryDetails = () => {
                 </div>
                 <div className='country-details__details--box'>
                   <Thermometer className='country-details__details--icon' />
-                  <p className='country-details__temperature'>28°C</p>
+                  <p className='country-details__temperature'>{results[2]?.data?.main?.temp}°C</p>
                 </div>
               </div>
               <div className='country-details__text--container'>
