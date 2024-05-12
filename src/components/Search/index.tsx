@@ -5,6 +5,8 @@ import { Autocomplete } from '@mui/material';
 import { useStorage } from '../../hooks/useStorage';
 import { useQuery } from '@tanstack/react-query';
 import appServices from '../../services';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './search.css';
 
 const Search = () => {
@@ -15,7 +17,7 @@ const Search = () => {
   const [location, setLocation] = useState('');
   const [destination, setDestination] = useState('');
 
-  const { data, refetch } = useQuery({
+  const { data, refetch, isLoading } = useQuery({
     retry: 0,
     queryKey: ['allCountries'],
     enabled: false,
@@ -31,6 +33,7 @@ const Search = () => {
         refetch();
         if (data) {
           const countryNames = getCountryNames(data);
+          // setCountries(data);
           storage.set('countryNames', JSON.stringify(countryNames));
         }
       }
@@ -63,9 +66,13 @@ const Search = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    await query?.refetch();
-    if (query?.isSuccess) navigate(`/details?from=${location}&to=${destination}`);
+    if (destination === location) {
+      toast.error("Location and destination can't be the same");
+    } else {
+      // TODO: Figure out why you have to click on search button twice before you're being redirected
+      await query?.refetch();
+      if (query?.isSuccess) navigate(`/details?from=${location}&to=${destination}`);
+    }
   };
 
   return (
@@ -80,6 +87,7 @@ const Search = () => {
                 value={value}
                 getOptionLabel={(option) => option}
                 noOptionsText='No location'
+                loading={isLoading}
                 onChange={(_, newValue) => {
                   handleChange(newValue as string);
                 }}
