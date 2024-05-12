@@ -62,8 +62,8 @@ const CountryDetails = () => {
                 <p className='country-details__info--text'>{country?.region}</p>
               </div>
               <div className='country-details__info--box'>
-                <h6 className='country-details__info--heading'>Flight time:</h6>
-                <p className='country-details__info--text'>6 hrs</p>
+                <h6 className='country-details__info--heading'>Sub Region:</h6>
+                <p className='country-details__info--text'>{country?.subregion}</p>
               </div>
               <div className='country-details__info--box'>
                 <h6 className='country-details__info--heading'>Population:</h6>

@@ -16,6 +16,7 @@ export type CountryProps = {
   name: string;
   capital: string;
   region: string;
+  subregion: string;
   timezones: Array<string>;
   population: number;
   flag: { medium: string };
