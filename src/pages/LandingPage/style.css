@@ -16,6 +16,21 @@
   position: relative;
 }
 
+.landing-page .MuiPaper-root {
+  align-items: center;
+}
+
+.landing-page .MuiAlert-message {
+  font-size: 1.2rem;
+  font-family: 'Junge', serif;
+  padding: 10px 0 8px;
+}
+
+.landing-page .MuiSvgIcon-root {
+  width: 2rem;
+  height: 2rem;
+}
+
 @media only screen and (min-width: 768px) {
   .landing-page {
     height: unset;
@@ -31,6 +46,10 @@
 
   .landing-page__search--wrapper {
     border-radius: 24px 24px 0 0;
+  }
+
+  .landing-page .MuiAlert-message {
+    font-size: 1.4rem;
   }
 }
 
